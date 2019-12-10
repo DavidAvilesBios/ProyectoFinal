@@ -1,0 +1,28 @@
+<div class="jumbotron animated fadeIn fast">
+  <div class="row">
+<h1>Tipos de llamadas</h1>
+    <div class="col-md-8">
+  
+      <div style="display: block">
+        <canvas baseChart
+                    [data]="doughnutChartData"
+                    [labels]="doughnutChartLabels"
+                    [chartType]="doughnutChartType"
+                    (chartHover)="chartHovered($event)"
+                    (chartClick)="chartClicked($event)"></canvas>
+      </div>
+  
+    </div>
+  
+    <div class="col-md-4">
+      <button type="button" class="btn btn-primary btn-block"
+              (click)="nuevaLLamada()">
+          Generar Nueva llamada
+      </button>
+    </div>
+  
+  </div>
+  
+  </div>
+
+  

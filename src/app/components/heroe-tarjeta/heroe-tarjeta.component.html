@@ -1,0 +1,14 @@
+<div class="card animated fadeIn fast" >
+    <!--<img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre"> -->
+    <div class="card-body">
+      <h5 class="card-title">{{cliente.payload.doc.data().cliente}}</h5>
+      <p class="card-text"> {{cliente.payload.doc.data().observaciones}} - {{cliente.payload.doc.data().fecharegistro.toDate() | date}} </p>
+
+     <button (click)="verHeroe(cliente.payload.doc.id)"
+      type="button" class="btn btn-outline-primary btn-block">
+        ver más...
+      </button>
+
+     <!---  <a [routerLink]="['/heroe',i]" class="btn btn-outline-primary">ver más...</a>-->
+    </div>
+  </div>

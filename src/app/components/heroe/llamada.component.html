@@ -1,0 +1,61 @@
+<div class="create-page">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">{{texto}}</li>
+      </ol>
+    </nav>
+    <div class="page-content animated fadeIn fast">
+      <div class="row">
+        <div class="col col-md-12">
+  
+          <form class="create-form" [formGroup]="exampleForm" novalidate (ngSubmit)="onSubmit(exampleForm.value)">
+  
+            <div class="form-group">
+                    <mat-form-field>
+                            <mat-label>Cliente</mat-label>
+                            <mat-select formControlName="cliente">
+                              <mat-option *ngFor="let cliente of clientesList" [value]="cliente.nombre">
+                                {{cliente.nombre}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.cliente">
+                <mat-error *ngIf="exampleForm.get('cliente').hasError(validation.type) && (exampleForm.get('cliente').dirty || exampleForm.get('cliente').touched)">{{validation.validation_messages}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="form-group">
+                    <mat-form-field class="input-style">
+                            <mat-label>Tipo llamada</mat-label>
+                            <mat-select formControlName="tipollamada">
+                              <mat-option *ngFor="let tipollamada of tiposLlamadas" [value]="tipollamada.payload.doc.data().Descripcion">
+                                {{tipollamada.payload.doc.data().Descripcion}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <ng-container *ngFor="let validation of validation_messages.tipollamada">
+                                <mat-error *ngIf="exampleForm.get('tipollamada').hasError(validation.type) && (exampleForm.get('tipollamada').dirty || exampleForm.get('tipollamada').touched)">{{validation.validation_messages}}</mat-error>
+                              </ng-container>
+            </div>
+  
+            <div class="form-group">
+              <mat-form-field class="input-style">
+                <input matInput  placeholder="observaciones" class="form-control" formControlName="observaciones">
+              </mat-form-field>
+              <ng-container *ngFor="let validation of validation_messages.observaciones">
+                <mat-error *ngIf="exampleForm.get('observaciones').hasError(validation.type) && (exampleForm.get('observaciones').dirty || exampleForm.get('observaciones').touched)">{{validation.validation_messages}}</mat-error>
+              </ng-container>
+            </div>
+  
+            <div class="row submit-button-container">
+              <div class="col-md-4">
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!exampleForm.valid">Aceptar</button>
+              </div>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
